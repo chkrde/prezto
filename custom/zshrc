@@ -22,3 +22,7 @@ if [[ -d "${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native
   echo "BTB environment settings loaded..."
 fi
 
+# Aliases
+alias vizshrc="vim ${HOME}/.zprezto/custom/zshrc"
+alias godevenv="cd ${HOME}/code/src/github.com/chkrde/devbox"
+
