@@ -12,7 +12,21 @@ fi
 
 # Customize to your needs...
 
-# Set theme here because it uses kill signal USR1 which doesn't work as plugin theme and kills terminal
+# Set theme here because it uses kill signal USR1 which doesn't work
+# as plugin theme in zprezto and kills terminal because TRAPUSR1() not defined
 source ${HOME}/.zprezto/modules/prompt/external/bureau/prompt_bureau_setup.zsh
 
+# Configure go
+export PATH="/usr/local/go/bin:$PATH"
+export GOPATH=${HOME}/code/gopath
 
+# Stuff
+export EDITOR=vim
+
+# BTB specific stuff
+if [[ -d "${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native/devEnv/scripts" ]]; then
+  source ${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native/devEnv/scripts/exports.sh
+  source ${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native/devEnv/scripts/aliases.sh
+  source ${HOME}/code/src/github.com/chkrde/devbox/scripts/btb-custom.zsh
+  echo "BTB environment settings loaded..."
+fi
