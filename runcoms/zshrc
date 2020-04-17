@@ -14,7 +14,7 @@ fi
 
 # Set theme here because it uses kill signal USR1 which doesn't work
 # as plugin theme in zprezto and kills terminal because TRAPUSR1() not defined
-source ${HOME}/.zprezto/modules/prompt/external/bureau/prompt_bureau_setup.zsh
+source ${HOME}/.zprezto/custom/prompt/prompt_bureau_setup.zsh
 
 # Configure go
 export PATH="/usr/local/go/bin:$PATH"
