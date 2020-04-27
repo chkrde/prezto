@@ -3,26 +3,35 @@
 #
 #
 
+
+# Disable zsh autocorretion
+unsetopt correct_all
+
 # Set theme here because it uses kill signal USR1 which doesn't work
 # as plugin theme in zprezto and kills terminal because TRAPUSR1() not defined
 source ${HOME}/.zprezto/custom/prompt/prompt_bureau_setup.zsh
+source "${HOME}/.sdkman/bin/sdkman-init.sh"
 
 # Configure go
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="${HOME}/code/gopath/bin:/usr/local/go/bin:$PATH"
 export GOPATH=${HOME}/code/gopath
 
 # Stuff
 export EDITOR=vim
 
 # BTB specific stuff
-if [[ -d "${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native/devEnv/scripts" ]]; then
-  source ${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native/devEnv/scripts/exports.sh
-  source ${GOPATH}/src/btbtrgit.intern.btbnet.de/cloud-native-team/Cloud-Native/devEnv/scripts/aliases.sh
+if [[ -d "${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts" ]]; then
+  source ${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts/exports.sh
+  source ${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts/aliases.sh
+  source ${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts/functions.zsh
   source ${HOME}/code/src/github.com/chkrde/devbox/scripts/btb-custom.zsh
   echo "BTB environment settings loaded..."
 fi
 
 # Aliases
 alias vizshrc="vim ${HOME}/.zprezto/custom/zshrc"
+alias vizpreztorc="vim ${HOME}/.zprezto/runcoms/zpreztorc"
 alias godevenv="cd ${HOME}/code/src/github.com/chkrde/devbox"
+
+export GPG_TTY=$(tty)
 
