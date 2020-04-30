@@ -5,7 +5,7 @@
 
 
 # Disable zsh autocorretion
-unsetopt correct_all
+unsetopt correct
 
 # Set theme here because it uses kill signal USR1 which doesn't work
 # as plugin theme in zprezto and kills terminal because TRAPUSR1() not defined

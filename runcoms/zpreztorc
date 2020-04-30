@@ -58,6 +58,9 @@ zstyle ':prezto:load' pmodule \
 # zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
 #   '0.0.0.0' '127.0.0.1'
 
+# Enable completion of . and ..
+zstyle ':completion:*' special-dirs true
+
 #
 # Editor
 #
