@@ -32,6 +32,7 @@ fi
 alias vizshrc="vim ${HOME}/.zprezto/custom/zshrc"
 alias vizpreztorc="vim ${HOME}/.zprezto/runcoms/zpreztorc"
 alias godevenv="cd ${HOME}/code/src/github.com/chkrde/devbox"
+alias code="code --disable-gpu"
 
 export GPG_TTY=$(tty)
 
