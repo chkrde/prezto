@@ -1,0 +1,15 @@
+#
+#
+#
+
+ck_getkubectl () {
+    kubectl_version=${1:-$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)}
+    echo Getting kubectl version ${kubectl_version}...
+    pushd ~/bin
+    wget -q -O kubectl-${kubectl_version} https://storage.googleapis.com/kubernetes-release/release/${kubectl_version}/bin/linux/amd64/kubectl
+    chmod u+x kubectl-${kubectl_version}
+    echo Create symlink for ${kubectl_version}...
+    ln -fs kubectl-${kubectl_version} ./kubectl
+    echo done.
+    popd
+}

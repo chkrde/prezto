@@ -7,10 +7,14 @@
 # Disable zsh autocorretion
 unsetopt correct
 
+# Load functions
+fpath=( ${HOME}/.zprezto/custom/functions "${fpath[@]}" )
+
 # Set theme here because it uses kill signal USR1 which doesn't work
 # as plugin theme in zprezto and kills terminal because TRAPUSR1() not defined
 source ${HOME}/.zprezto/custom/prompt/prompt_bureau_setup.zsh
-source "${HOME}/.sdkman/bin/sdkman-init.sh"
+source ${HOME}/.sdkman/bin/sdkman-init.sh
+source ${HOME}/.zprezto/custom/k8s_zsh_functions
 
 # Configure go
 export PATH="${HOME}/code/gopath/bin:/usr/local/go/bin:${HOME}/bin:$PATH"
