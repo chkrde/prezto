@@ -37,3 +37,9 @@
 	path = modules/prompt/external/bureau
 	url = https://github.com/isqua/bureau.git
 	shallow = true
+[submodule "custom/modules/wd"]
+	path = custom/modules/wd
+	url = https://github.com/mfaerevaag/wd.git
+[submodule "custom/prompt/kube-ps1"]
+	path = custom/prompt/kube-ps1
+	url = https://github.com/jonmosco/kube-ps1.git
