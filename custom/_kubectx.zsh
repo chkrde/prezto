@@ -1,0 +1,1 @@
+/home/krieger/code/gopath/src/github.com/ahmetb/kubectx/completion/kubectx.zsh

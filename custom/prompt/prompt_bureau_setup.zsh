@@ -32,10 +32,10 @@ BUREAU_ASYNC_PROC=0
 
 prompt_bureau_precmd () {
     # user@host path
-    local left="%{$fg_bold[$prompt_bureau_user_color]%}%n%{$reset_color%}@%m %{$fg_bold[$prompt_bureau_path_color]%}%~%{$reset_color%}"
+    local left="%{$fg_bold[$prompt_bureau_user_color]%}%n%{$reset_color%}@%m $(kube_ps1)%{$fg_bold[$prompt_bureau_path_color]%}%~%{$reset_color%}"
     # current time
-    local right="[%*]"
-    local offset=$(( $COLUMNS - $(prompt_bureau_string_width $left) - $(prompt_bureau_string_width $right) + 2 ))
+    local right=" [%*]"
+    local offset=$(( $COLUMNS - $(prompt_bureau_string_width $left) - $(prompt_bureau_string_width $right) + 3 ))
 
     print -P "\n${left}" "${(l:$offset::-:)right}"
 

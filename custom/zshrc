@@ -3,41 +3,54 @@
 #
 #
 
-
 # Disable zsh autocorretion
 unsetopt correct
 
 # Load functions
-fpath=( ${HOME}/.zprezto/custom/functions "${fpath[@]}" )
+fpath=( ${HOME}/.zprezto/custom/completions "${fpath[@]}" )
+autoload -U compinit && compinit
+
+# POWERLEVEL9K_MODE="awesome-fontconfig"
 
 # Set theme here because it uses kill signal USR1 which doesn't work
 # as plugin theme in zprezto and kills terminal because TRAPUSR1() not defined
+source ${HOME}/.zprezto/custom/aliases.kubectl
 source ${HOME}/.zprezto/custom/prompt/prompt_bureau_setup.zsh
 source ${HOME}/.sdkman/bin/sdkman-init.sh
 source ${HOME}/.zprezto/custom/k8s_zsh_functions
 
-# Configure go
-export PATH="${HOME}/code/gopath/bin:/usr/local/go/bin:${HOME}/bin:$PATH"
-export GOPATH=${HOME}/code/gopath
+# kube prompt
+KUBE_PS1_BINARY=kubectl
+KUBE_PS1_PREFIX=[
+KUBE_PS1_SUFFIX="] "
+KUBE_PS1_CONTEXT_ENABLE=false
+KUBE_PS1_SYMBOL_ENABLE=false
+source ${HOME}/.zprezto/custom/prompt/kube-ps1/kube-ps1.sh
+
+# Configure environment vars in ~/.profile and source them from  ~/.xinitrc (or ~/.xprofile)
+# goes for PATH and GO vars
 
 # Stuff
-export EDITOR=vim
-
-# BTB specific stuff
-if [[ -d "${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts" ]]; then
-  source ${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts/exports.sh
-  source ${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts/aliases.sh
-  source ${GOPATH}/src/github.com/btb-gmbh/cloudnative/devEnv/scripts/functions.zsh
-  source ${HOME}/code/src/github.com/chkrde/devbox/scripts/btb-custom.zsh
-  echo "BTB environment settings loaded..."
-fi
+export GPG_TTY=$(tty)
+export EXA_COLORS="uu=32;00:gu=32;00:sn=36;00:sb=36;01:ur=32:uw=32:ux=32:ue=32:gr=33:gw=33:gx=33:tr=31:tw=31:tx=31"
 
 # Aliases
 alias vizshrc="vim ${HOME}/.zprezto/custom/zshrc"
 alias vizpreztorc="vim ${HOME}/.zprezto/runcoms/zpreztorc"
-alias godevbox="cd ${HOME}/code/src/github.com/chkrde/devbox"
-alias code="code --disable-gpu"
+# alias code="code --disable-gpu"
 alias history="history 1"
+alias kns="kubens"
+alias kctx="kubectx"
+alias git-cleanup="${HOME}/bin/git-cleanup.bash"
+alias wdl="wd list"
+alias l="exa"
+alias ls='exa'
+alias ll='exa -l --header --group'
+alias la='exa -la --header --group'
+alias lg='exa -la --header --group --grid'
 
-export GPG_TTY=$(tty)
+# Put work specific stuff in here
+source ${HOME}/.work-profile
+
+source <(kubectl completion zsh)
 

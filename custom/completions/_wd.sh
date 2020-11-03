@@ -1,0 +1,1 @@
+/home/krieger/.zprezto/custom/modules/wd/_wd.sh

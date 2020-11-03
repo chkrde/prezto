@@ -16,7 +16,7 @@
 zstyle ':prezto:*:*' color 'yes'
 
 # Add additional directories to load prezto modules from
-# zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
+zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto/custom/modules
 
 # Allow module overrides when pmodule-dirs causes module name collisions
 # zstyle ':prezto:load' pmodule-allow-overrides 'yes'
@@ -42,7 +42,8 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'gpg' \
   'ssh' \
-  'git'
+  'git' \
+  'wd'
 
 #
 # Autosuggestions
@@ -166,7 +167,7 @@ zstyle ':prezto:module:prompt' theme 'off'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa_git' 'id_rsa_nopass.priv'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa_git' 'id_rsa_nopass.priv'
 
 #
 # Syntax Highlighting

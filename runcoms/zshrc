@@ -16,5 +16,5 @@ source "${ZDOTDIR:-$HOME}/.zprezto/custom/zshrc"
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/chkrde/.sdkman"
-[[ -s "/home/chkrde/.sdkman/bin/sdkman-init.sh" ]] && source "/home/chkrde/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/krieger/.sdkman"
+[[ -s "/home/krieger/.sdkman/bin/sdkman-init.sh" ]] && source "/home/krieger/.sdkman/bin/sdkman-init.sh"
