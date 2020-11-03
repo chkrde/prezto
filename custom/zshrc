@@ -49,8 +49,5 @@ alias ll='exa -l --header --group'
 alias la='exa -la --header --group'
 alias lg='exa -la --header --group --grid'
 
-# Put work specific stuff in here
-source ${HOME}/.work-profile
-
 source <(kubectl completion zsh)
 
