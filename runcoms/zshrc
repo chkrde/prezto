@@ -18,3 +18,6 @@ source "${ZDOTDIR:-$HOME}/.zprezto/custom/zshrc"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/krieger/.sdkman"
 [[ -s "/home/krieger/.sdkman/bin/sdkman-init.sh" ]] && source "/home/krieger/.sdkman/bin/sdkman-init.sh"
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin

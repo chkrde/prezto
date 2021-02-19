@@ -30,14 +30,19 @@ source ${HOME}/.zprezto/custom/prompt/kube-ps1/kube-ps1.sh
 # Configure environment vars in ~/.profile and source them from  ~/.xinitrc (or ~/.xprofile)
 # goes for PATH and GO vars
 
-# Stuff
+## Stuff
 export GPG_TTY=$(tty)
 export EXA_COLORS="uu=32;00:gu=32;00:sn=36;00:sb=36;01:ur=32:uw=32:ux=32:ue=32:gr=33:gw=33:gx=33:tr=31:tw=31:tx=31"
+# zsh autosuggestions
+export ZSH_AUTOSUGGEST_HISTORY_IGNORE="export *"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=239"
 
 # Aliases
 alias vizshrc="vim ${HOME}/.zprezto/custom/zshrc"
 alias vizpreztorc="vim ${HOME}/.zprezto/runcoms/zpreztorc"
 # alias code="code --disable-gpu"
+alias sops='EDITOR="code --wait" sops '
 alias history="history 1"
 alias kns="kubens"
 alias kctx="kubectx"
@@ -48,6 +53,11 @@ alias ls='exa'
 alias ll='exa -l --header --group'
 alias la='exa -la --header --group'
 alias lg='exa -la --header --group --grid'
+alias lat='exa -la --header --group -sold'
+alias bazel='bazelisk'
 
+# Source
 source <(kubectl completion zsh)
+source <(oc completion zsh)
+source ${BITBW_MONO}/devenv/zsh_functions/openshift_functions
 
